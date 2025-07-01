@@ -196,7 +196,7 @@ if(BUILD_WITH_HPP_FCL_SUPPORT)
     PUBLIC PINOCCHIO_WITH_HPP_FCL
     PRIVATE COAL_DISABLE_HPP_FCL_WARNINGS)
   target_include_directories(
-    pinocchio_default PUBLIC $<TARGET_PROPERTY:hpp-fcl::hpp-fcl,INTERFACE_INCLUDE_DIRECTORIES>)
+    pinocchio_default PUBLIC $<TARGET_PROPERTY:coal::coal,INTERFACE_INCLUDE_DIRECTORIES>)
 endif()
 
 # Define the extra target This target hold extra algorithms.
@@ -242,7 +242,7 @@ if(BUILD_WITH_HPP_FCL_SUPPORT)
     ${COLLISION_LIB_NAME}
     PUBLIC PINOCCHIO_WITH_HPP_FCL
     PRIVATE COAL_DISABLE_HPP_FCL_WARNINGS)
-  target_link_libraries(${COLLISION_LIB_NAME} PUBLIC ${PROJECT_NAME}_default hpp-fcl::hpp-fcl)
+  target_link_libraries(${COLLISION_LIB_NAME} PUBLIC ${PROJECT_NAME}_default coal::coal)
 
   # Define the collision parallel target
   if(BUILD_WITH_OPENMP_SUPPORT)
@@ -272,7 +272,7 @@ if(BUILD_WITH_HPP_FCL_SUPPORT)
     ${VISUALIZERS_LIB_NAME}
     PUBLIC PINOCCHIO_WITH_HPP_FCL
     PRIVATE COAL_DISABLE_HPP_FCL_WARNINGS)
-  target_link_libraries(${VISUALIZERS_LIB_NAME} PUBLIC hpp-fcl::hpp-fcl)
+  target_link_libraries(${VISUALIZERS_LIB_NAME} PUBLIC coal::coal)
 endif()
 
 # Define the parsers target.
